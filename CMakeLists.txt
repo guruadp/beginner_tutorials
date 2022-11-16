@@ -13,6 +13,13 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+ament_export_dependencies(rosidl_default_runtime)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/UpdateString.srv"
+)
 
 add_executable(talker src/publisher_member_function.cpp)
 ament_target_dependencies(talker rclcpp std_msgs)
@@ -20,8 +27,16 @@ ament_target_dependencies(talker rclcpp std_msgs)
 add_executable(listener src/subscriber_member_function.cpp)
 ament_target_dependencies(listener rclcpp std_msgs)
 
+add_executable(server_client src/server_client.cpp)
+ament_target_dependencies(server_client rclcpp)
+
 install(TARGETS
   talker
   listener
+  server_client
   DESTINATION lib/${PROJECT_NAME})
+
+rosidl_target_interfaces(talker ${PROJECT_NAME} "rosidl_typesupport_cpp")
+rosidl_target_interfaces(server_client ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
 ament_package()
