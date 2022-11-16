@@ -1,5 +1,4 @@
-# beginner_tutorials
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ## Overview
 
 This projects contains a publisher and subscriber node that publishes custom string message to a topic and the subscriber listens to the string published by the publisher node from the same topic.
