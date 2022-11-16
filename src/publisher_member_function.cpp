@@ -28,15 +28,33 @@ using namespace std::chrono_literals;
 class MinimalPublisher : public rclcpp::Node {
  public:
   MinimalPublisher() : Node("minimal_publisher"), count_(0) {
+    try{
     publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
     timer_ = this->create_wall_timer(
         500ms, std::bind(&MinimalPublisher::timer_callback, this));
+      RCLCPP_DEBUG_STREAM(this->get_logger(), "Initializing server"); 
+      server = this->create_service<beginner_tutorials::srv::UpdateString>("service_node", std::bind(&Publisher::UpdateString,this,std::placeholders::_1,std::placeholders::_2));   
+      
+    }
+    catch(...){
+      RCLCPP_ERROR_STREAM(this->get_logger(), "Error during initialization!!");
+      RCLCPP_FATAL_STREAM(this->get_logger(), "Publisher may not work!!");
+    }
+
   }
+
+  void updateString(const std::shared_ptr<beginner_tutorials::srv::UpdateString::Request> request,   
+          std::shared_ptr<beginner_tutorials::srv::UpdateString::Response>       response) {
+  response->opString = request->ipString 
+
+  server_resp_message = response->opString;
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\ninput: '%s'",request->ipString.c_str()); //+
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: '%s'",response->opString.c_str());}
 
  private:
   void timer_callback() {
     auto message = std_msgs::msg::String();
-    message.data = "Hello, world! This is Guru Nandhan A D P";
+    message.data = server_resp_message;
     RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
     publisher_->publish(message);
   }
