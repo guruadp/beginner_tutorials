@@ -4,9 +4,9 @@
  * @brief A subscriber that subscribes string from publisher
  * @version 0.1
  * @date 2022-11-17
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #include <functional>
@@ -19,7 +19,7 @@ using std::placeholders::_1;
 
 /**
  * @brief This class contains the constructor
- * 
+ *
  */
 class MinimalSubscriber : public rclcpp::Node {
  public:
@@ -29,11 +29,11 @@ class MinimalSubscriber : public rclcpp::Node {
   }
 
  private:
- /**
-  * @brief this function prints the string that is subscribed from publisher
-  * 
-  * @param msg 
-  */
+  /**
+   * @brief this function prints the string that is subscribed from publisher
+   *
+   * @param msg
+   */
   void topic_callback(const std_msgs::msg::String &msg) const {
     RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
   }
@@ -41,10 +41,10 @@ class MinimalSubscriber : public rclcpp::Node {
 };
 /**
  * @brief this is the main function
- * 
- * @param argc 
- * @param argv 
- * @return int 
+ *
+ * @param argc
+ * @param argv
+ * @return int
  */
 int main(int argc, char *argv[]) {
   rclcpp::init(argc, argv);

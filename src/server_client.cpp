@@ -4,9 +4,9 @@
  * @brief Server that updates the string in the publisher node
  * @version 0.1
  * @date 2022-11-17
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 #include <chrono>
 #include <functional>
@@ -21,7 +21,7 @@ using namespace std::chrono_literals;
 
 /**
  * @brief Initializes node and get string request
- * 
+ *
  */
 class ServerClient : public rclcpp::Node {
  public:
@@ -39,10 +39,10 @@ class ServerClient : public rclcpp::Node {
 
 /**
  * @brief this is the main function
- * 
- * @param argc 
- * @param argv 
- * @return int 
+ *
+ * @param argc
+ * @param argv
+ * @return int
  */
 int main(int argc, char **argv) {
   rclcpp::init(argc, argv);
