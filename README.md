@@ -19,20 +19,29 @@ Build the package
 ```
 colcon build --packages-select cpp_pubsub
 ```
-Source the terminal and run publisher
+Source the terminal and run publisher with debug mode
 
 ```
 . install/setup.bash
-ros2 run cpp_pubsub talker
+ros2 run cpp_pubsub talker --ros-args --log-level debug
 ```
 
-Open a new terminal, source it and run subscriber
+Open a new terminal, source it and run subscriber with debug mode
 
 ```
 . install/setup.bash
-ros2 run cpp_pubsub listener
+ros2 run cpp_pubsub listener --ros-args --log-level debug
 ```
-
+* Running service client (change `new_string_to_publish` to the desired string want to publish)
+```
+ros2 run cpp_pubsub server_client <new_string_to_publish> --ros-args --log-level debug
+```
+## Run with launch file
+```
+ros2 launch cpp_pubsub pubsub_launch.yaml freq:=1
+```
+## rqt_console log output
+![](results/rqt_console_output_1.png)
 
 ## Dependencies
 
