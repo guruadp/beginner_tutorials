@@ -66,6 +66,7 @@ colcon test --event-handlers console_direct+ --packages-select cpp_pubsub
 ## ROS Bag
 #### To record run record command and then publisher node
 ```
+ros2 launch cpp_pubsub bag_record_launch.py bag_record:=True
 ros2 bag record /chatter
 ros2 run cpp_pubsub talker
 ```
