@@ -45,7 +45,6 @@ rosidl_target_interfaces(server_client
   ${PROJECT_NAME} "rosidl_typesupport_cpp")
  install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME})
-  
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
