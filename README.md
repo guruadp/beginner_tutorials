@@ -48,11 +48,20 @@ ros2 launch cpp_pubsub pubsub_launch.yaml freq:=1
 . install/setup.bash
 ros2 run cpp_pubsub talker
 ```
-### To generate result pdf
+#### To echo and generate result pdf
 ```
+ros2 topic echo /tf_static
 ros2 run tf2_tools view_frames
 ```
-
+## Google Test
+#### Building test
+```
+colcon test --packages-select cpp_pubsub
+```
+#### To check the status of the test cases
+```
+colcon test --event-handlers console_direct+ --packages-select cpp_pubsub
+```
 ## Dependencies
 
 ROS humble - To install follow the below link
