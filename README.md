@@ -62,6 +62,25 @@ colcon test --packages-select cpp_pubsub
 ```
 colcon test --event-handlers console_direct+ --packages-select cpp_pubsub
 ```
+
+## ROS Bag
+#### To record run record command and then publisher node
+```
+ros2 bag record /chatter
+ros2 run cpp_pubsub talker
+```
+
+#### To check the recorded file info
+```
+ros2 bag info <generated_folder>
+```
+
+#### To play the recorded file and subscribe it
+```
+ros2 bag play <generated_folder>
+ros2 run cpp_pubsub listener
+```
+
 ## Dependencies
 
 ROS humble - To install follow the below link
