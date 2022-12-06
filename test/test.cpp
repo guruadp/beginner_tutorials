@@ -49,11 +49,19 @@
 
 #include "std_msgs/msg/string.hpp"
 
+/**
+ * @brief this class defines testing
+ * 
+ */
 class TaskPublisher : public testing::Test {
  protected:
   rclcpp::Node::SharedPtr test_node_;
 };
 
+/**
+ * @brief this case tests number of 
+ * publishers in the chatter topic
+ */
 TEST_F(TaskPublisher, test_num_publishers) {
   test_node_ = rclcpp::Node::make_shared("test_pub");
   auto test_pub =

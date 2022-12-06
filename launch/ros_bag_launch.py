@@ -26,6 +26,10 @@ from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
 from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration, PythonExpression
 
+##
+# @brief this launch file record publisher data
+#
+##
 def generate_launch_description():
     """Method to launch the nodes in the package with bag record flag"""
     bag_record = LaunchConfiguration('bag_record')
