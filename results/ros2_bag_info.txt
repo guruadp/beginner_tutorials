@@ -1,0 +1,8 @@
+Files:             rosbag2_2022_12_05-22_12_25/rosbag2_2022_12_05-22_12_25_0.db3
+Bag size:          16.0 KiB
+Storage id:        sqlite3
+Duration:          27.0s
+Start:             Dec  5 2022 22:12:52.845 (1670296372.845)
+End:               Dec  5 2022 22:13:19.846 (1670296399.846)
+Messages:          55
+Topic information: Topic: /chatter | Type: std_msgs/msg/String | Count: 55 | Serialization Format: cdr
