@@ -43,6 +43,16 @@ ros2 launch cpp_pubsub pubsub_launch.yaml freq:=1
 ## rqt_console log output
 ![](results/rqt_console_output_1.png)
 
+## Run tf2
+```
+. install/setup.bash
+ros2 run cpp_pubsub talker
+```
+### To generate result pdf
+```
+ros2 run tf2_tools view_frames
+```
+
 ## Dependencies
 
 ROS humble - To install follow the below link
